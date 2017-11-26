@@ -1,2 +1,26 @@
-/**/
-
+/*　navber　*/
+.nav>li {
+    float: left;
+    display: inline-block;
+}
+.navbar-nav {
+    margin: 0;
+}
+.navbar-nav>li>a {
+    padding-top: 14.5px;
+    padding-bottom: 14.5px;
+}
+/* loop_mikan */
+body {
+    background: url("../images/mikan.png");
+    -webkit-animation: bgiLoop 10s linear infinite;
+    animation: bgiLoop 10s linear infinite;
+}
+@-webkit-keyframes bgiLoop {
+    0% { background-position: 0 0;}
+    100% { background-position: -100px 200px;}
+}
+@keyframes bgiLoop {
+    0% { background-position: 0 0;}
+    100% { background-position: -100px 200px;}
+}

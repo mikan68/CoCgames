@@ -4,13 +4,15 @@
     	<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>ふぇえええええ</title>
+		<title>summon</title>
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <script>
+            var target = document.getElementById("body");
+            //document.write(window.innerHeight);
+        </script>
 	</head>
-	<body>
-        <p>summon</p>
-        
+	<body id="body">        
         
         <nav class="navbar navbar-default navbar-fixed-bottom">
             <div class="container">
@@ -26,6 +28,39 @@
                 </div>
             </div>
         </nav>
+        
+        <div class="container-fluid">
+            <div class="row">
+                    
+                <div id="sampleCarousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+		                <li class="active" data-target="#sampleCarousel" data-slide-to="0"></li>
+		                <li data-target="#sampleCarousel" data-slide-to="1"></li>
+		                <li data-target="#sampleCarousel" data-slide-to="2"></li>
+	                </ol>
+	                <div class="carousel-inner" role="listbox">
+		                <div class="item active">
+			                <img src="./images/summon/button_summon.png" alt="First summon">
+		                </div>
+		                <div class="item">
+			                <img src="./images/summon/button_summon.png" alt="Second summon">
+		                </div>
+		                <div class="item">
+			                <img src="./images/summon/button_summon.png" alt="Third summon">
+    		            </div>
+    	            </div>
+    	            <a class="left carousel-control" href="#sampleCarousel" role="button" data-slide="prev">
+    		            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    		            <span class="sr-only">前へ</span>
+    	            </a>
+    	            <a class="right carousel-control" href="#sampleCarousel" role="button" data-slide="next">
+    		            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    		            <span class="sr-only">次へ</span>
+    	            </a>
+                </div>
+                    
+            </div>
+        </div>
 
         
         

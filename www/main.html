@@ -4,9 +4,13 @@
     	<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>ふぇえええええ</title>
+		<title>Main</title>
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <script>
+            var id = localStorage.getItem('loginUserID');
+            var name = localStorage.getItem('loginUserName');
+        </script>
 	</head>
 	<body>
         
@@ -28,7 +32,10 @@
         <div class="container-fluid">
             <div class="row">
 		        <div class="col-xs-7">
-			        ID:0000 name:00000
+                    ID:
+                    <script type="text/javascript">
+                       document.write(id + "　name:" + name); 
+                    </script>
                     <div class="row">
                         <div class="col-xs-1"></div>
                         <div class="col-xs-11">
@@ -54,7 +61,7 @@
 			        </div>
 		        </div>
 		        <div class="col-xs-5">
-                    <img src="./images/character/4.png" class="img-responsive" alt="サンプル画像">
+                    <img src="./images/character/1.png" class="img-responsive" alt="サンプル画像">
 		        </div>
 	       </div>
         </div>

@@ -1,13 +1,7 @@
-var name = 'cctdb'
-var version = '1.0'
-var description = 'Web SQL Database'
-var size = 2 * 1024 * 1024
-var db = openDatabase(name, version, description, size)
-
 var id = localStorage.getItem('loginUserID');
 var name = localStorage.getItem('loginUserName');
 // localStorage.removeItem('loginUserID');
-//localStorage.removeItem('loginUserName');
+// localStorage.removeItem('loginUserName');
 
 //ログイン情報の確認
 $( function() {
@@ -36,7 +30,7 @@ function login() {
     var pass = document.getElementById("pass").value;
     
     db.transaction(function (tx) {
-        tx.executeSql('SELECT * FROM user WHERE login_id = ? AND pass = ?', [loginID,pass],
+        tx.executeSql('SELECT * FROM users WHERE login_id = ? AND pass = ?', [loginID,pass],
         function (tx, results) {
             // SUCCESS
             for (i = 0; i < results.rows.length; i++){
@@ -49,7 +43,6 @@ function login() {
         },function(err){
             // ERROR
             console.log(err);
-            alert("IDとパスワードが一致しません。");
         })
     })
     location.href = "./index.html";

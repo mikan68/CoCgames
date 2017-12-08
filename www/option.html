@@ -8,6 +8,9 @@
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="./css/style.css">
         <script type="text/javascript" src="./js/Option.js"></script>
+        <script>
+            var name = localStorage.getItem('loginUserName');
+        </script>
 	</head>
 	<body>    
         
@@ -36,7 +39,7 @@
 	                    <tbody>
                     		<tr>
                     			<th>ID</th>
-                    			<td>AraiSekai</td>
+                    			<td><script>document.write(name);</script></td>
                     		</tr>
                     		<tr>
                     			<th>召喚数</th>

@@ -32,13 +32,8 @@
         <div class="container-fluid">
             <div class="row">
 		        <div class="col-xs-7">
-                    ID:
-                    <script type="text/javascript">
-                       document.write(id + "　name:" + name); 
-                    </script>
                     <div class="row">
-                        <div class="col-xs-1"></div>
-                        <div class="col-xs-11">
+                        <div class="col-xs-12">
                             <div id="sampleCarousel" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner" role="listbox">
 		                            <div class="item active">
@@ -54,11 +49,42 @@
                             </div>
                         </div>
 			        </div>
-			        <div class="row">
-			    	    <div class="col-xs-4">.col-xs-4</div>
-			    	    <div class="col-xs-4">.col-xs-4</div>
-				        <div class="col-xs-4">.col-xs-4</div>
-			        </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                	<h5 class="panel-title">
+                                        <script type="text/javascript">
+                                            document.write(id + "." + name); 
+                                        </script>
+                                	</h5>
+                            	</div>
+                                <div class="panel-body">
+                                        HP
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: 60%;">60%</div>
+                                    </div>
+                                    
+                                    <div class="row">
+    		    	                    <div class="col-xs-6">
+                                            <button class="btn btn-default btn-block">
+                                                <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
+                                                BOX　<span class="badge">26</span>
+                                            </button> 
+                			    	    </div>
+                			    	    <div class="col-xs-6">
+                    		    	        <button class="btn btn-default btn-block">
+                                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                                予備　<span class="badge">10</span>
+                                            </button>   
+                			    	    </div>
+                			        </div>
+                                    
+                            	</div>	
+                            </div>
+                        </div>
+                    </div>
+			        
 		        </div>
 		        <div class="col-xs-5">
                     <img src="./images/character/1.png" class="img-responsive" alt="サンプル画像">

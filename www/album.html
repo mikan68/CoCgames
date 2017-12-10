@@ -23,37 +23,87 @@
                     </ul>
                 </div>
             </div>
-        </nav>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-2">
-                    <a data-toggle="modal" data-target="#chara1">
-                        <img src="https://drive.google.com/uc?id=10ZY2C3pd91fPoWkRMjMvhhPpbXkQojOO" class="img-responsive" alt="サンプル画像">    
-                    </a>
-                </div>                
-            </div>
+        </nav> 
+        
+        <div class="row">
+            <div class="col-xs-2">
+            	<a class="thumbnail" data-toggle="modal" data-target="#chara1">
+        			<img src="https://drive.google.com/uc?id=10ZY2C3pd91fPoWkRMjMvhhPpbXkQojOO">
+        		</a>
+        	</div>
+            
         </div>
         
         <!-- モーダル・ダイアログ -->
         <div class="modal fade" id="chara1" tabindex="-1">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
         		<div class="modal-content">
         			<div class="modal-header">
         				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-        				<h4 class="modal-title">No.1 丹代陽大</h4>
+        				<h4 class="modal-title">No.1 睦亮太郎</h4>
         			</div>
         			<div class="modal-body">
-                        <div class="col-xs-4">
-                            <img src="https://drive.google.com/uc?id=1lhCbhc-aA2dOIuNRlDtrT3YEwdTgXOym" class="img-responsive" alt="サンプル画像">
+                    
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img src="https://drive.google.com/uc?id=1lhCbhc-aA2dOIuNRlDtrT3YEwdTgXOym" class="img-responsive" alt="サンプル画像">
+                            </div>
+                            <div class="col-xs-8">
+                            
+                                <!-- タブ・メニュー -->
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#Status" data-toggle="tab">Status</a></li>
+                                	<li><a href="#Profile" data-toggle="tab">Profile</a></li>
+                                	<li><a href="#Other" data-toggle="tab">Other</a></li>
+                                	<li><a href="#sampleContentD" data-toggle="tab">進化</a></li>
+                                </ul>
+                                
+                                <!-- タブ内容 -->
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="Status">
+                                		
+                                        <div class="well well-sm">
+                                            <b>ABILITY</b><br />
+                                            STR10 CON10 POW10 DEX10<br>
+                                            APP10 SIZ10 INT10 EDU10
+                                        </div>
+                                        <div class="well well-sm">
+                                            <b>SKILL</b><br>
+                                            医学80％
+                                        </div>
+                                	
+                                       
+                                	</div>
+                                	<div class="tab-pane" id="Profile">
+
+                                        <div class="well well-sm">
+                                            PROFILE
+                                        </div>
+                                        <div class="well well-sm">
+                                            絆レベル情報
+                                        </div>
+
+                                	</div>
+                                	<div class="tab-pane" id="Other">
+                                		
+                                        <div class="well well-sm">
+                                            イメソン
+                                        </div>
+                                        <div class="well well-sm">
+                                            絆会話
+                                        </div>
+                                        
+                                	</div>
+                                	<div class="tab-pane" id="sampleContentD">
+                                		<p>sinka~~</p>
+                                	</div>
+                                </div>    
+                            </div>
                         </div>
-                        <div class="col-xs-8">    
-                            <div class="well well-sm">能力値</div>
-                            <div class="well well-sm">技能値</div>
-                            <div class="well well-sm">プロフィール</div>    
-                        </div>
+                    
+                        
         			</div>
-        			<div class="modal-footer"></div>
+        			<div class="modal-footer"> </div>
         		</div>
         	</div>
         </div>

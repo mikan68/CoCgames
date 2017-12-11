@@ -116,6 +116,11 @@
             $(function () {
                 $('[data-toggle="popover"]').popover();
             });
+            
+            // スクロールを無効にする
+            $(window).on('touchmove.noScroll', function(e) {
+                e.preventDefault();
+            });
         </script>
 	</body>
 </html>

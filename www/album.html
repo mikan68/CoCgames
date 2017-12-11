@@ -46,7 +46,26 @@
                     
                         <div class="row">
                             <div class="col-xs-4">
-                                <img src="https://drive.google.com/uc?id=1lhCbhc-aA2dOIuNRlDtrT3YEwdTgXOym" class="img-responsive" alt="サンプル画像">
+                            
+                                <div id="sampleCarousel" class="carousel slide" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                		<li class="active" data-target="#sampleCarousel" data-slide-to="0"></li>
+                                		<li data-target="#sampleCarousel" data-slide-to="1"></li>
+                                		<li data-target="#sampleCarousel" data-slide-to="2"></li>
+                                	</ol>
+	                                <div class="carousel-inner" role="listbox">
+	                                	<div class="item active">
+	                                		<img src="https://drive.google.com/uc?id=1lhCbhc-aA2dOIuNRlDtrT3YEwdTgXOym" alt="First slide">
+                                		</div>
+                                		<div class="item">
+                                			<img src="https://drive.google.com/uc?id=1yhx0F-RdjueOWEJ4HNXLqH4jEEkBbgMf" alt="Second slide">
+                                		</div>
+                                		<div class="item">
+                                			<img src="https://drive.google.com/uc?id=1Kg0ffeVQzLcIeIvPlwJLhCHY8xh9PVRr" alt="Third slide">
+                                		</div>
+                                	</div>
+                                </div>
+                            
                             </div>
                             <div class="col-xs-8">
                             
@@ -118,7 +137,10 @@
                     
                         
         			</div>
-        			<div class="modal-footer"> </div>
+        			<div class="modal-footer">
+                        <button type="button" class="btn btn-default">favo</button>
+            		    <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+        			</div>
         		</div>
         	</div>
         </div>

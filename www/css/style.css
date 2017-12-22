@@ -28,3 +28,8 @@ body {
 body.scr{
     overflow: hidden;    
 }
+/* アーティファクト画像サイズ */
+img.artifact{
+    width: 70%;
+    height: auto;
+}

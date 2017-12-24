@@ -30,6 +30,17 @@ body.scr{
 }
 /* アーティファクト画像サイズ */
 img.artifact{
-    width: 70%;
+    width: 100%;
     height: auto;
+}
+.relative {
+    position: relative;
+}
+.absolute {
+    position: absolute;
+    top: 0px;
+    font-size: 0.7em;
+    text-shadow: 1px 1px 2px silver;
+    font-weight: bold;
+    line-height: 0.2;
 }

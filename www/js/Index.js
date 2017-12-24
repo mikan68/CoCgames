@@ -48,3 +48,35 @@ function login() {
     location.href = "./index.html";
   
 }
+
+//新規登録※テスト環境(userテーブル)でテスト中
+function start(){
+    var loginID = document.getElementById("loginID2").value;
+    var pass = document.getElementById("pass2").value;
+    var name = document.getElementById("name").value;
+    
+    db.transaction(function (tx){
+      tx.executeSql('insert into user (name, pass, login_id) values (?,?,?)', [name, pass, loginID])
+    })
+    
+    db.transaction(function (tx){
+        tx.executeSql('select * from user where login_id = ?', [loginID],
+            function (tx, results){
+                for (i = 0; i < results.rows.length; i++){
+                    var Check = results.rows.item(i).id;
+                }
+                if(typeof Check === 'undefined'){
+                    console.log("false");
+                }else{
+                    console.log("true");
+                    localStorage.setItem('loginUserID', Check);
+                    localStorage.setItem('loginUserName', name);
+                
+                    location.href = "./main.html";
+                }
+            }
+        )
+    })
+}
+
+

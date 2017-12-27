@@ -32,6 +32,7 @@ function login() {
     db.transaction(function (tx) {
         tx.executeSql('SELECT * FROM users WHERE login_id = ? AND pass = ?', [loginID,pass],
         function (tx, results) {
+            console.log("test");
             // SUCCESS
             for (i = 0; i < results.rows.length; i++){
                 //console.log(results.rows.item(i).login_id)

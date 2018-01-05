@@ -1,5 +1,3 @@
-// This is a JavaScript file
-
 //ログアウト処理
 function logout() {
     

@@ -1,5 +1,3 @@
-var id = localStorage.getItem('loginUserID');
-var name = localStorage.getItem('loginUserName');
 // localStorage.removeItem('loginUserID');
 // localStorage.removeItem('loginUserName');
 

@@ -7,11 +7,8 @@
 		<title>Main</title>
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <script type="text/javascript" src="./js/storage.js"></script>
         <script type="text/javascript" src="./js/Main.js"></script>
-        <script>
-            var id = localStorage.getItem('loginUserID');
-            var name = localStorage.getItem('loginUserName');
-        </script>
 	</head>
 	<body class="scr">
         
@@ -26,7 +23,7 @@
                         <li><a href="shop.html">SHOP</a></li>
                         <li><a href="option.html">OPTION</a></li>
                         <script>
-                            if(id == 1){
+                            if(id == 1 || name == "admin"){
                                 document.write("<li><a href='admin.html'>管理</a></li>");
                             }
                         </script>

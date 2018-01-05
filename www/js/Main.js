@@ -1,5 +1,3 @@
-// This is a JavaScript file
-
 //現在時刻表示
 function set2fig(num) {
    // 桁数が1桁だったら先頭に0を加えて2桁に調整

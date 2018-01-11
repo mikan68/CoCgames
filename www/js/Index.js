@@ -48,18 +48,18 @@ function login() {
   
 }
 
-//新規登録※テスト環境(userテーブル)でテスト中
+//新規登録
 function start(){
     var loginID = document.getElementById("loginID2").value;
     var pass = document.getElementById("pass2").value;
     var name = document.getElementById("name").value;
     
     db.transaction(function (tx){
-      tx.executeSql('insert into user (name, pass, login_id) values (?,?,?)', [name, pass, loginID])
+      tx.executeSql('insert into users (name, pass, login_id) values (?,?,?)', [name, pass, loginID])
     })
     
     db.transaction(function (tx){
-        tx.executeSql('select * from user where login_id = ?', [loginID],
+        tx.executeSql('select * from users where login_id = ?', [loginID],
             function (tx, results){
                 for (i = 0; i < results.rows.length; i++){
                     var Check = results.rows.item(i).id;

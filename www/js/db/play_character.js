@@ -45,6 +45,6 @@ db.transaction(function (tx){
 function charaInsert(){
     db.transaction(function (tx){
         tx.executeSql('insert into play_character(pc_id,pc_name,rank,str,dex,pc_int,con,app,pow,siz,edu,profile,characteristic01,characteristic02,characteristic03,pl) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', [1,'睦亮太郎',1,15,13,15,9,9,12,12,15,'胃が痛い医大生',23,15,22,2])
-            
+        tx.executeSql('insert into play_character(pc_id,pc_name,rank,str,dex,pc_int,con,app,pow,siz,edu,profile,characteristic01,characteristic02,characteristic03,pl) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', [2,'狩野陽子',1,13,10,14,12,14,14,11,16,'図書館司書さん',50,0,0,2])    
     })
 }

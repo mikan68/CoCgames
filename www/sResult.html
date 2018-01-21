@@ -7,6 +7,9 @@
 		<title>result</title>
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <script>
+            normalList = JSON.parse(sessionStorage.getItem('normalList'));
+        </script>
 	</head>
 	<body class="scr">
     
@@ -16,7 +19,7 @@
                     document.write(
                         '<div class="col-xs-3">'
                 	        +'<a href="./summon.html" class="thumbnail">'
-            		            +'<img src="https://drive.google.com/uc?id=1lhCbhc-aA2dOIuNRlDtrT3YEwdTgXOym">'
+            		            +'<img src="' + normalList[i]["c_pic01"] + '">'
             		        +'</a>'
             	        +'</div>'
                     );    
@@ -26,11 +29,11 @@
         
         <div class="row">
             <script>
-                for(var i=0; i<6; i++){
+                for(var i=4; i<10; i++){
                     document.write(
                         '<div class="col-xs-2">'
                             +'<a href="./summon.html" class="thumbnail">'
-            		            +'<img src="https://drive.google.com/uc?id=1lhCbhc-aA2dOIuNRlDtrT3YEwdTgXOym">'
+            		            +'<img src="' + normalList[i]["c_pic01"] + '">'
             		        +'</a>'
             	        +'</div>'
                     );    

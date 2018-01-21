@@ -61,7 +61,7 @@
                             +'<div class="modal-body">'
                                 +'<div class="row">'
                                     +'<div class="col-xs-4">'
-                                        +'<div id="pcCarousel'+ i +'" class="carousel slide" data-ride="carousel">'
+                                        +'<div id="pcCarousel'+ i +'" class="carousel slide" data-ride="carousel" data-interval="false">'
                                             +'<div class="carousel-inner" role="listbox">'
 		                                        +'<div class="item active">'
                                         			+'<img src="' + charaList1[i]["c_pic01"] + '" alt="First slide">'
@@ -290,5 +290,16 @@
         
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script src="./js/jquery/jquery.touchSwipe.js"></script>
+        <script>
+            $(".carousel-inner").swipe( {
+                swipeLeft:function(event, direction, distance, duration, fingerCount) {
+                    $(this).parent().carousel('next'); 
+                },
+                swipeRight:function(event, direction, distance, duration, fingerCount) {
+                    $(this).parent().carousel('prev'); 
+                }
+            });
+        </script>
 	</body>
 </html>

@@ -15,3 +15,13 @@ function showClock2() {
    document.getElementById("RealtimeClockArea2").innerHTML = msg;
 }
 setInterval('showClock2()',1000);
+
+//召喚数(SummonPoint)の取得
+db.transaction(function (tx){
+    tx.executeSql('select * from users where id =' + id + ';', [],
+        function (tx, results){
+            var sp = results.rows.item(0).summon_point;
+            document.getElementById("summonPoint").innerHTML = "SummonPoint : " + sp;
+        }
+    )
+})

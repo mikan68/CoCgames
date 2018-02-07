@@ -1,3 +1,7 @@
+// db.transaction(function (tx){
+//     tx.executeSql('drop table users')
+// })
+
 //usersDBの作成
 db.transaction(function(tx){
     tx.executeSql(`
@@ -5,7 +9,8 @@ db.transaction(function(tx){
         id integer primary key autoincrement,
         name varchar not null,
         pass varchar not null,
-        login_id varchar UNIQUE not null
+        login_id varchar UNIQUE not null,
+        summon_point int not null
       )
     `)
 })
@@ -26,9 +31,9 @@ db.transaction(function (tx){
 //usersテーブルにレコードを追加する
 function userInsert(){
     db.transaction(function (tx){
-      tx.executeSql('insert into users (name,pass,login_id) values (?,?,?)', ['admin','pass','admin'])
-      tx.executeSql('insert into users (name,pass,login_id) values (?,?,?)', ['AraiSekai','0608','sekai'])
-      tx.executeSql('insert into users (name,pass,login_id) values (?,?,?)', ['KamataMikoto','0910','mikoto'])
-      tx.executeSql('insert into users (name,pass,login_id) values (?,?,?)', ['HirokawaYuki','0606','yuki'])
+      tx.executeSql('insert into users (name,pass,login_id,summon_point) values (?,?,?,?)', ['admin','pass','admin',0])
+      tx.executeSql('insert into users (name,pass,login_id,summon_point) values (?,?,?,?)', ['AraiSekai','0608','sekai',0])
+      tx.executeSql('insert into users (name,pass,login_id,summon_point) values (?,?,?,?)', ['KamataMikoto','0910','mikoto',0])
+      tx.executeSql('insert into users (name,pass,login_id,summon_point) values (?,?,?,?)', ['HirokawaYuki','0606','yuki',0])
     })
 }

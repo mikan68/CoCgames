@@ -1,4 +1,6 @@
 function Normal(){
+    sp_plus(1);
+    
     charaList1 = JSON.parse(sessionStorage.getItem('charaList'));
     var sumRank = 0;
     
@@ -18,6 +20,9 @@ function Normal(){
 
 //10連
 function Normal10(){
+    //召喚数に+10
+    sp_plus(10);
+    
     charaList1 = JSON.parse(sessionStorage.getItem('charaList'));
     var normalList = [];
     
@@ -54,3 +59,22 @@ function Percent(sum,rank){
         return sum;
     }
 }
+
+//召喚数加算
+function sp_plus(num){
+    db.transaction(function (tx){
+        tx.executeSql('select * from users where id =' + id + ';', [],
+        function (tx, results){
+            var sp = results.rows.item(0).summon_point;
+            sp_plus2(num,sp);
+        })
+    })
+}
+function sp_plus2(num,sp){
+    var num2 = sp + num;
+    db.transaction(function (tx){
+        tx.executeSql('update users set summon_point = ? where id = ?', [num2, id])
+    })
+}
+
+

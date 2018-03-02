@@ -1,11 +1,18 @@
-//ユーザID
-var id = localStorage.getItem('loginUserID');
-//ユーザネーム
-var name = localStorage.getItem('loginUserName');
-//play_character、pc_info情報
-var charaList1 = [];
-//characteristic情報
-var characteristic = [];
+var id = localStorage.getItem('loginUserID'); //ユーザID
+var name = localStorage.getItem('loginUserName'); //ユーザネーム
+var mainChara; //メイン画面配置キャラ
+var charaList1 = []; //play_character、pc_info情報
+var characteristic = []; //characteristic情報(特徴表)
+
+
+db.transaction(function (tx){
+    tx.executeSql('select * from users where id =' + id + ';', [],
+        function (tx, results){
+            mainChara = results.rows.item(0).mainChara;
+            sessionStorage.setItem('mainChara', JSON.stringify(mainChara));
+        }
+    )
+})
 
 db.transaction(function (tx){
     tx.executeSql('select * from play_character inner join pc_info on play_character.pc_id = pc_info.id;', [],
@@ -83,4 +90,4 @@ db.transaction(function (tx){
     )
 })
 characteristic = JSON.parse(sessionStorage.getItem('characteristic'));
-console.log(characteristic);
+//console.log(characteristic);

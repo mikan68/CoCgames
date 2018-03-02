@@ -91,8 +91,13 @@
 			        
 		        </div>
 		        <div class="col-xs-5">
-                    <div data-toggle="popover" data-content="児童文学がちょっとしたブームなの。中でも面白い作家の方がいらっしゃって、時間があればぜひ読んでもらいたいわ。" data-placement="left">
-                        <div id="mainCharacter"></div>
+                
+                    <script>
+                        mainChara = JSON.parse(sessionStorage.getItem('mainChara'));                    
+                        document.write('<div data-toggle="popover" data-placement="left">');
+                        document.write('<img src=' + charaList1[mainChara-1]["s_pic02"] + ' class="img-responsive" alt="mainImage">');
+                    </script>
+                    
                     </div>
 		        </div>
 	       </div>
@@ -105,10 +110,10 @@
 		        <div class="modal-content">
 			        <div class="modal-header">
 				        <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-				        <h4 class="modal-title">ニュース1</h4>
+				        <h4 class="modal-title">ieeeeeeeeeeeeee</h4>
 			        </div>
 			        <div class="modal-body">
-				        本文<br>
+				        おっすおっすテストテスト<br>
 			        </div>
 			        <div class="modal-footer">
 				        <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
@@ -121,8 +126,13 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <script>
-            $(function () {
-                $('[data-toggle="popover"]').popover();
+            var talkNum = Math.floor( Math.random() * 3 );
+            $(function () {                
+                $('[data-toggle="popover"]').popover(
+                    {
+    		            content: ramdomTalk(talkNum)
+		            }    
+                );
             });
             
             // スクロールを無効にする

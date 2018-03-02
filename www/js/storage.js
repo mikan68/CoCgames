@@ -35,6 +35,11 @@ db.transaction(function (tx){
                 chara["siz"] = results.rows.item(i).siz;
                 chara["edu"] = results.rows.item(i).edu;
                 chara["profile"] = results.rows.item(i).profile;
+                chara["profile_1"] = results.rows.item(i).profile_1;
+                chara["profile_2"] = results.rows.item(i).profile_2;
+                chara["profile_3"] = results.rows.item(i).profile_3;
+                chara["profile_4"] = results.rows.item(i).profile_4;
+                chara["profile_5"] = results.rows.item(i).profile_5;
                 chara["characteristic01"] = results.rows.item(i).characteristic01;
                 chara["characteristic02"] = results.rows.item(i).characteristic02;
                 chara["characteristic03"] = results.rows.item(i).characteristic03;

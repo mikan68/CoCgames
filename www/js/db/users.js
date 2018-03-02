@@ -10,7 +10,8 @@ db.transaction(function(tx){
         name varchar not null,
         pass varchar not null,
         login_id varchar UNIQUE not null,
-        summon_point int not null
+        summon_point int not null,
+        mainChara int not null
       )
     `)
 })
@@ -31,9 +32,9 @@ db.transaction(function (tx){
 //usersテーブルにレコードを追加する
 function userInsert(){
     db.transaction(function (tx){
-      tx.executeSql('insert into users (name,pass,login_id,summon_point) values (?,?,?,?)', ['admin','pass','admin',0])
-      tx.executeSql('insert into users (name,pass,login_id,summon_point) values (?,?,?,?)', ['AraiSekai','0608','sekai',0])
-      tx.executeSql('insert into users (name,pass,login_id,summon_point) values (?,?,?,?)', ['KamataMikoto','0910','mikoto',0])
-      tx.executeSql('insert into users (name,pass,login_id,summon_point) values (?,?,?,?)', ['HirokawaYuki','0606','yuki',0])
+      tx.executeSql('insert into users (name,pass,login_id,summon_point,mainChara) values (?,?,?,?,?)', ['admin','pass','admin',0,2])
+      tx.executeSql('insert into users (name,pass,login_id,summon_point,mainChara) values (?,?,?,?,?)', ['AraiSekai','0608','sekai',0,2])
+      tx.executeSql('insert into users (name,pass,login_id,summon_point,mainChara) values (?,?,?,?,?)', ['KamataMikoto','0910','mikoto',0,2])
+      tx.executeSql('insert into users (name,pass,login_id,summon_point,mainChara) values (?,?,?,?,?)', ['HirokawaYuki','0606','yuki',0,2])
     })
 }

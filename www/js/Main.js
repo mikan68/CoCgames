@@ -16,12 +16,14 @@ function showClock2() {
 }
 setInterval('showClock2()',1000);
 
-//召喚数(SummonPoint)の取得
+//召喚数(SummonPoint),メインキャラIDの取得
 db.transaction(function (tx){
     tx.executeSql('select * from users where id =' + id + ';', [],
         function (tx, results){
             var sp = results.rows.item(0).summon_point;
+            var mainChara = results.rows.item(0).mainChara;
             document.getElementById("summonPoint").innerHTML = "SummonPoint : " + sp;
+            document.getElementById("mainCharacter").innerHTML = '<img src=' + charaList1[mainChara-1]["s_pic02"] + ' class="img-responsive" alt="mainImage">';
         }
     )
 })

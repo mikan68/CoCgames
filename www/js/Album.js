@@ -8,3 +8,12 @@ function setMusic(){
     else {
     }
 }
+
+//メインキャラクターの変更
+function changeMainChara(charaId){    
+    sessionStorage.setItem('mainChara', JSON.stringify(charaId));
+    db.transaction(function (tx){
+      tx.executeSql('update users set mainChara = ? where id = ?', [charaId, id])
+    })
+    alert("メインキャラに設定しました。");
+}

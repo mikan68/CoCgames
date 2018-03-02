@@ -269,9 +269,7 @@
                                 +'</div>'
                             +'</div>'
                             +'<div class="modal-footer">'
-                                +'<button type="button" id="sampleButtonSingleToggle" class="btn btn-warning" data-toggle="button" autocomplete="off">'
-                                    +'<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>'
-                                +'</button>'
+                                +'<a class="btn btn-warning" href="#" onclick="changeMainChara(' + (i+1) + ');" role="button"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>'
                                 +'<button type="button" class="btn btn-default" data-dismiss="modal">close</button>'
                             +'</div>'
                         +'</div>'
@@ -283,7 +281,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <script src="./js/jquery/jquery.touchSwipe.js"></script>
-        <script>
+        <script>        
             $(".carousel-inner").swipe( {
                 swipeLeft:function(event, direction, distance, duration, fingerCount) {
                     $(this).parent().carousel('next'); 

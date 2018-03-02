@@ -4,7 +4,8 @@ var id = localStorage.getItem('loginUserID');
 var name = localStorage.getItem('loginUserName');
 //play_character、pc_info情報
 var charaList1 = [];
-
+//characteristic情報
+var characteristic = [];
 
 db.transaction(function (tx){
     tx.executeSql('select * from play_character inner join pc_info on play_character.pc_id = pc_info.id;', [],
@@ -63,3 +64,23 @@ charaList1 = JSON.parse(sessionStorage.getItem('charaList'));
 // console.log(charaList1);
 // console.log(charaList1[0]["name"]);
 // console.log(charaList1.length);
+
+db.transaction(function (tx){
+    tx.executeSql('select * from characteristic;', [],
+        function (tx, results){
+            characteristic = [];
+            for (i = 0; i < results.rows.length; i++){
+                
+                var charaIstic = {};
+                charaIstic["c_id"] = results.rows.item(i).rowid;
+                charaIstic["c_name"] = results.rows.item(i).c_name;
+                charaIstic["c_detail"] = results.rows.item(i).c_detail;
+
+                characteristic.push(charaIstic);
+            }
+            sessionStorage.setItem('characteristic', JSON.stringify(characteristic));
+        }
+    )
+})
+characteristic = JSON.parse(sessionStorage.getItem('characteristic'));
+console.log(characteristic);

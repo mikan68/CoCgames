@@ -1,0 +1,135 @@
+// db.transaction(function (tx){
+//     tx.executeSql('drop table characteristic')
+// })
+
+//characteristicの作成
+db.transaction(function(tx){
+    tx.executeSql(`
+      create table if not exists characteristic (        
+        c_name text not null,
+        c_detail text not null
+      )
+    `)
+})
+
+//データの確認
+db.transaction(function (tx){
+    tx.executeSql('select * from characteristic', [],
+        function (tx, results){
+            for (i = 0; i < results.rows.length; i++){
+                var Check = results.rows.item(i).c_name;
+                //console.log(Check);
+            }
+            if(typeof Check === 'undefined'){
+                charasInsert();
+            }
+        }
+    )
+})
+
+//テーブルにレコードを追加する
+//tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['',''])
+function charasInsert(){
+    db.transaction(function (tx){
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['土地勘','<ナビゲート>の初期値が40%となる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['地獄耳','どんな音も聞き逃さない地獄耳の持ち主。聞き耳+30%'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['博識','様々な分野に興味があり、薄く広く様々な分野の知識を有している。専門的な知識が必要な場面でも<知識>に成功することによってほんの少しだけ情報を得られる時がある。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['神の手','優しく丁寧な手つきで傷を負ったものの治癒をする。<応急手当>の技能値が+20%され、回復値が1D3+1になる'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['修羅場','探索者の今まで他の人間が到底経験することがないような経験をしてきた。(神話的なものではない)キャラメイク時に現在SAN値を5減らす代わりにEDUを1増加させる'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['ダイハード','あきらめるなまだ死にやしない。耐久値-1以下になる攻撃を受けても、耐久値は0より下にはならない。ただし、耐久値が0のときを除く。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['短期集中型','短い時間、一つのことに集中するのが得意な探索者は、50%以上取得している技能の技能値を一度99%に引き上げることができる。ただし使用後6時間すべての技能値が-30%される。六時間後、再使用可能となる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['ものひろい','〈幸運〉がクリティカルした際、PL・PCの意志に関係なく何らかのアイテムが手に入る。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['代償','本当は理解してしまっているのに理解していないと自分に言い聞かせて何とか正気を保とうとする。をして正気度ポイントが0以下になった時、不定の狂気を一つ追加し、正気度ポイントをPOWと同じ分回復する。回復した際、この特徴は失われる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['予期せぬ協力者','探索者には、いかなる理由か自分に忠誠を尽し、援助に来るかもしれない協力者がいる。キーパーが協力者の正体を決める。また、協力者の影響力をD100ロールで決める（数字が大きいほど影響力が高い）。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['君は風邪を引かない','君は難しいことなど考えず、元気いっぱいに育った。INT-1、CON+2。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['大きな体','生まれつき大きな体に恵まれている。SIZ+1。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['素早い','柔軟さと軽快さを併せ持っている。DEX+1。ただしSIZが9以下の場合、素早い上に小柄であるため、DEX+2。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['オシャレ','いつも身だしなみに気を使っている。APP+1。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['天才','生まれつき頭の回転が速い。INT+1。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['強固な意志','何事にも動じない、強靭な精神の持ち主だ。能力値POWおよびSANは変動しないが、現在正気度ポイントに+5。ただし増加する上限は、最大正気度ポイント（99-<クトゥルフ神話技能>）となる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['勉強家','あなたは日々学ぶことに精進している。EDU+1。また、EDUによる年齢の下限は適用されない。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['幸運のお守り','幸運のお守り（どんなものかはKPと相談して決める）を持っている。身に着けている限りPOW+1。もし手放したり紛失すればPOW-1。POWの増減により〈幸運〉は変化するが、正気度ポイントは変化しない。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['一族伝来の宝物','絵画、本、武器、家具などの個人的な宝物で、探索者やキャンペーンにとって特別な価値を持つ品を所有している。宝物は、魔術的な力を持つアーティファクトかも知れない。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['前職','以前は別の職についていたが、幼少期に何か得難い体験をしている。［EDU×3］%を、前職としてプレイヤーが決めた、職業上の技能に割り振ることが出来る。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['手先が器用','任意の<製作>1つの基本成功率が50%となる（プレイヤーは分野を決めること）。さらに<機械修理>および<電気修理>に+10%。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['影が薄い','生まれつき目立たない。<忍び歩き>および<隠れる>に+20%。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['親の七光り','名家の出身、または親が有名人かも知れない。<信用>に+20%。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['愛書家','あらゆるジャンルの蔵書を持っている。<図書館>に+20%。さらに図書館に出掛けなくても、自宅の書庫で<図書館>ロールが可能となる'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['鋭い洞察力','優れた感覚の持ち主であるため、<目星>に+30%。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['アウトドア派','暇さえあれば季節を問わず、野外活動に繰り出している。<ナビゲート><博物学><追跡>にそれぞれ+20%。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['珍しい技能','探索者［INT×5］%の、日常生活には役立たないが特定の人を感心させるような技能を1つ、キーパーと相談したうえで持つことが出来る。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['芸術的才能','稽古事を小さいころに習っていたか、実用ブログなどで人気を博している。任意の<芸術>一つに［INT×3］%を加える。プレイヤーは音楽、著述などの専門分野を指定すること。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['バイリンガル','日本以外の国で生活したことがある。［EDU×5］%を、最大3つまでの<ほかの言語>技能に割り振ることが出来る。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['平凡な容姿','平凡な顔のため、他人の印象に残りにくい。<変装>に+20%。加えて、一度しか会ったことのない相手ならば、相手が<アイデア>ロールに失敗すれば、「よくある顔です」と言い訳するだけで他人としてごまかせる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['天気予報士','外を見て<アイデア>ロールに成功すれば、短い期間（［1D6+1］時間）の正確な天気を予測できる。降水確率や風の向き・強さ、嵐の時間帯、雷の落下しやすい場所も予測可能だ。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['プロ・ドライバー','小さい頃から乗り物で遊んでいた。あらゆる<運転>技能の基本成功率は50%である。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['飛ばし屋','空間把握能力に優れている。あらゆる<投擲>技能の基本成功率は50%である。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['戦士','周囲の物はすべて武器だと考えている。あらゆる近接戦闘武器(肉体を使った技能を除く)の基本成功率は50％である'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['銃火器の達人','銃火器とは何かの縁があり、普段から親しんでいる。火器技能5つ（拳銃、サブマシンガン、ショットガン、マシンガン、ライフル）の基本成功率は50%である。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['格闘センスの持ち主','幼いときから道場で鍛えられてきた。素手の戦闘技能3つ(キック、組み付き、頭突き)の基本成功率が50％となる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['俊敏','どんな時も、鋭く素早く状況を把握できる。<回避>の基本成功率は、通常の［DEX×2］%ではなく［DEX×5］%である。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['信頼のおける人','探索者は自分の家族や友人などの仲間を見捨てたり粗末にしたりせず、可能な限り助けようとする人間だ。その評判が続く限り、任意のコミュニケーション系技能3つに、それぞれ+10%。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['スポーツ万能','1つの技能に+20%、3つの技能に+10%、合計4つの任意の運動系技能にボーナスを加える。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['夜に弱い','夜には、すぐ眠くなる体質である。深夜0時を過ぎても活用しようとすれば、<アイディア>および<知識>ロールの成功の範囲がそれぞれ2分の1（端数切り上げ）となる。ただし、早起きは得意である。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['目つきが悪い','目つきが悪すぎて、知り合い以外から怖がられる。[APP]-1。さらに<信用>-10%'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['方向音痴','<ナビゲート>の基本成功率が1%になる。加えて、経験ロールで成長させることはできない'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['異性が苦手','どうしても異性とうまく話ができない。異性に対する<言いくるめ><説得><信用>に、それぞれ-10%。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['動物に嫌われる','独特の佇まいのせいで、たいていの動物は探索者を見るなり威嚇してくる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['不思議ちゃん','時折突拍子もない言動で周囲を騒がせることがある。別の世界から来た精神交換者か、妄想が生み出した人がしばしば表面に出ているのかもしれない。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['寄せ餌','人間以外の怪物に好かれやすい。誘拐されれば殺されずに監禁されるか、もっとひどい目に遭うこともある。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['眼鏡を掛けている','探索者は常時眼鏡を必要とする。眼鏡失えば、視覚に関連する技能はキーパーの判断で20%減少することがある。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['大切なもの','他人には価値のないものだが、大切な品物をいつも身に着けている。失った時には1/1D8正気度ポイントを失う。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['暗黒の祖先','邪悪な一族、カルティスト、人肉嗜食者、もしくは超自然のクリーチャーの子孫である。D100をロールし、結果が大きいほどより邪悪な存在となる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['受け身','どんなときでもきちんと受け身を取って被害を最小限に抑えることができる。ショックのCONロールの成功の範囲に+20%。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['動物に好かれる','独特のたたずまいのおかげか、たいていの動物がなついてくる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['斜め上からの発想','狂気に陥った場合、探索者は独特の感性により、原因となった恐怖に対して秘められた真実を見抜くことができる。キーパーはクライマックスで宇宙的l恐怖の一端を教えてくれるだろう。ただしクライマックス以外の場面では、何も教えてくれない可能性がある。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['失敗は発明の母','技能ロール「96」以上の目を出して「失敗」した際、ただちに特別な経験ロールを行なう。失敗すれば0ポイント、成功すれば1ポイントの技能ポイントを得る。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['ペット','探索者には、最愛の犬、猫、鳥などがいる。シナリオとシナリオの間、一緒に触れ合うことで、正気度ポイントを1D3ポイント増加させてもよい。ただし増加する上限は、能力のSANあるいは最大正気度ポイント（99－<クトゥルフ神話>）のうち、どちらか低いほうとなる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['おおらか','いやなことをすぐに忘れられる。精神化クリニックや療養所などの正気度ポイントの回復が+1増加する。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['異物への耐性','体内の免疫力が発達している。毒(POT)を抵抗表で競う際に、成功の範囲に+20%。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['潜水の名人','長時間、息を止めていられる。窒息に対するCONロールの成功の範囲に+20%。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['大酒飲み','酒にはめっぽう強く、酔いにくい。アルコールを毒のように扱う場合、探索者はすべてのアルコール関連のPOTを2分の1（端数切り上げ）にする。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['ド根性','根性がある。あらゆる抵抗表を使用したロールで、成功する範囲に+5%。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['好意を寄せられている','シナリオに登場する誰かに好意を持たれる。キーパーの裁量で、誰が、なぜ好きなのかを決定する。どれほど行為を寄せているかはD100ロールで決める（数字が大きい方が好き）。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['奇妙な幸運','クトゥルフ神話の神性や怪物がランダムに目標を攻撃する際、その対象からは除外される。ただし単独で攻撃される場合や範囲攻撃の中にいた場合は、対象となる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['投擲の才能','<投擲>で投げることができる武器のダメージ・ボーナスは通常の2分の1ではなく、通常のダメージ・ボーナスとなる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['鋼の筋力','ダメージ・ボーナスが1段階向上する(例：「-1D4」なら「+0」に。「+0」なら「1D4」に)。ただしダメージ・ボーナスが「1D6」以上ある場合は、1段階向上する代わりにダメージ・ボーナスにさらに+1。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['実は生きていた','生き残るすべに長けている。死からの生還（’クトゥルフ神話TRPG’64ページ）のチャンスが通常の次ラウンドではなく、5ラウンド以内に伸びる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['急所を見抜く','狩人の素質を持っている。貫通の確率は通常の5分の1ではなく、2分の1となる。ただし最大40%である。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['急速な回復力','新陳代謝能力に優れている。耐久力を回復するロールの結果に+1'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['不屈の精神','気絶しても、次のラウンドの最初に[CON×2]ロールを行う。成功なら、治療を受けずとも自ら目覚めて、そのラウンドから再び行動が可能となる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['マニア・コレクター','コイン、本、昆虫、芸術、宝石、歴史的な遺物などを収集している。任意のコレクションを一つ決めること。その筋では有名人であり、<幸運>ロールに成功すれば相手にも共感を得られて、感動を与えられるかもしれない。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['行方不明の家族','探索者には行方不明の家族がおり、キャンペーンの間に現れるかもしれない（例えば、海で遭難した、異国で死んだと思われる、他の親族に連れ去られた、など）'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['天然','探索者の発想は常識の斜め上を行き、意図的にボケてるわけでもなく、心からそう思ったことがズレてる。 一時的発狂判定時の〈アイデア〉がクリティカルした場合、狂気に陥らない。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['ギャンブラー','常に刺激を求めている。ハイリスクハイリターンこそがギャンブルの真骨頂。クリティカルの値が01~10になるかわりにファンブルの値が91~00になる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['自信家','自分の行動に過剰なまでの自信を持つ、そして案外何とかなる。25%以下の技能をした場合、次回ロール時その技能値を倍増させる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['火事場の馬鹿力','追い込まれると人間は限界を超え力を発揮する。HPが半分を切った際、<こぶし><頭突き><キック>のダメージが倍になり、戦闘終了後気絶ロールをする。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['同性愛者','探索者は同姓以外に興味がなく、異性からの魅力は全く感じない'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['往生際が悪い','セッションに一度まで失敗した技能ロールをやり直すことが可能になる。ただし、それも失敗した場合、ファンブルの時よりもひどい失敗となる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['逃げ足が速い','戦闘が開始した直後に逃亡を試みるとき、対抗ロール時のDEXに+4'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['第六感','勘が鋭く、不意打ち攻撃を回避または受け流すことができる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['顔が広い','人望が厚く、いろいろな人と交流してきた探索者は友人または知り合いにその道専門の人がいる。電話口などで、<知識系技能99%>の人にセッション中一度だけ頼ることができる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['プライドが高い','常に人の先に行き、常に完璧を目指す。自分以外の誰かと共に行動しているとき、戦闘系技能の技能値に+5%する。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['読心術師','セッション中、3度まで<心理学>のロール結果の開示を要求できる。ただし結果は心理学を使用したプレイヤーにのみ開示する。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['根に持つタイプ','やられたら、やり返す。が信条。自分に一度でもダメージを与えたことのある敵を対象にとり攻撃するとき、ダメージボーナス+1を付加する。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['速読','文章を読むスピードが速く、通常の1/2の速さで読み終えることができる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['体捌き','スポーツ神経がよく、身のこなしに無駄がない。1ラウンドにできる受け流しの回数を二回に引き上げる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['完璧主義者','常に完璧を追い求め、少しの狂いもなく仕事をこなそうとする。目標値と同値で成功した場合クリティカル扱いになる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['自動車通学','あなたは学生時代自転車で通学していた。運転（自転車）の技能に+50％'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['愛煙家','タバコが大好きで肌身離さず所持してる。一時間も吸えないなんてことになるとイライラしてしまうことだろう。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['悪友','人と縁が切る勇気もなければ改心させることもできない探索者は、友人に犯罪に手を染めている者がいる。その人物より非合法なアイテムを入手できる可能性がある。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['道連れ','火器を持った探索者が気絶または死亡するとき、倒れる直前に<技能値/2>で1度発砲することができる。この攻撃は不意打ち扱いとなる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['夜目が効く','暗がりでものを見る能力に長けている。暗さが原因のマイナス補正は受けない。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['感染源','一時的発狂をしたときに1D100を振り、95以上が出た場合、他のPC一人をダイスロールで選ぶ。そのPCは同じ一時的発狂に陥る。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['義手(義足)','探索者は左右どちらかの腕が義手(脚が義足)である。手(足)を使う技能の初期値は-20%される。また、義手(義足)が破壊された場合、手(足)を使う技能値は半減される。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['かなずち','水泳の初期値が１となる。さらに、成長ロールで成長させることが出来ない。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['暗所恐怖症','暗闇を極端に怖がり、できる限り近づこうとしない。光源が確保されていない場所ではすべての技能値は-10%される。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['マイナス思考','物事をすぐに悲観的な方向に考えてしまう、何をやってもダメなんだ。75%以上の技能を失敗した場合、次回ロール時その技能値を半減させる。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['乗り物酔い','探索者は三半規管が極めて弱く、乗り物に乗って移動する場合、CON*5に失敗すると気分が悪くなり、１D3時間全技能値が-10%される'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['怖がり','臆病でいつもビクビクして、すぐ余計なことまで気になってしまう自分が知らない場所や特殊な状況下に陥ったとき、率先して行動を起こすことができない'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['低血圧','朝は苦手で起きてから動き出すまでにかなり時間がかかる。起床後三時間は技能値-20%される'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['天涯孤独','頼れる身内が一切いない。孤児院から出てきた、身内がみんな死んでしまったなど設定はプレイヤーが考え、KPに確認をとること。'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['機械音痴','機械の類はとにかく苦手。<機械修理><電気修理><すべての火器>技能の初期値が１％になる'])
+        tx.executeSql('insert into characteristic(c_name,c_detail)values(?,?)',['平凡','特に言ってなんの特徴もなく生まれ、なんの特徴もなく育ってきた。これからも何も波風の立たない人生を送るはずだった。この特徴をとった場合、他の特徴は取れない。'])
+    })
+}

@@ -112,11 +112,23 @@
                                                     +'<b>SKILL</b><br>医学80％'
                                                 +'</div>'
                                                 +'<div class="well well-sm">'
-                                                    +'<b>特徴</b><br>'
-                                                    +'【'+ charaList1[i]["characteristic01"] +'.特徴名】<br>　説明<br>'
-                                                    +'【'+ charaList1[i]["characteristic02"] +'.特徴名】<br>　説明<br>'
-                                                    +'【'+ charaList1[i]["characteristic03"] +'.特徴名】<br>　説明'
-                                                +'</div>'
+                                                    +'<b>特徴</b><br>');
+                                                if(charaList1[i]["characteristic01"]==0){
+                                                    document.write('【0．無し】<br>');
+                                                }else{
+                                                    document.write('【'+ charaList1[i]["characteristic01"] +'.'+ characteristic[charaList1[i]["characteristic01"]-1]["c_name"] +'】<br>'+ characteristic[charaList1[i]["characteristic01"]-1]["c_detail"] +'<br>');
+                                                }
+                                                if(charaList1[i]["characteristic02"]==0){
+                                                    document.write('【0．無し】<br>');
+                                                }else{
+                                                    document.write('【'+ charaList1[i]["characteristic02"] +'.'+ characteristic[charaList1[i]["characteristic02"]-1]["c_name"] +'】<br>'+ characteristic[charaList1[i]["characteristic02"]-1]["c_detail"] +'<br>');
+                                                }
+                                                if(charaList1[i]["characteristic03"]==0){
+                                                    document.write('【0．無し】<br>');
+                                                }else{
+                                                    document.write('【'+ charaList1[i]["characteristic03"] +'.'+ characteristic[charaList1[i]["characteristic03"]-1]["c_name"] +'】<br>'+ characteristic[charaList1[i]["characteristic03"]-1]["c_detail"]);
+                                                }
+                                                document.write('</div>'
                                             +'</div>'
                                             +'<div class="tab-pane" id="Profile'+i+'"><br>'
                                                 +'<div class="well well-sm">'

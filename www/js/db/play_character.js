@@ -1,6 +1,6 @@
-db.transaction(function (tx){
-    tx.executeSql('drop table play_character')
-})
+// db.transaction(function (tx){
+//     tx.executeSql('drop table play_character')
+// })
 
 //play_characterDBの作成
 db.transaction(function(tx){
@@ -32,7 +32,7 @@ db.transaction(function (tx){
         function (tx, results){
             for (i = 0; i < results.rows.length; i++){
                 var Check = results.rows.item(i).pc_id;
-                console.log(Check);
+                //console.log(Check);
             }
             if(typeof Check === 'undefined'){
                 charaInsert();

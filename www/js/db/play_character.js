@@ -1,6 +1,6 @@
-db.transaction(function (tx){
-    tx.executeSql('drop table play_character')
-})
+// db.transaction(function (tx){
+//     tx.executeSql('drop table play_character')
+// })
 
 //play_characterDBの作成
 db.transaction(function(tx){

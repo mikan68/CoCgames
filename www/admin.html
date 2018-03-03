@@ -31,6 +31,18 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="well">
+                    <h4>ストレージ情報</h4>
+                    <b>localStorage</b><br />
+                    <script>
+                        var loginUser = JSON.parse(localStorage.getItem('loginUser'));
+                        document.write("　・ID：" + loginUser["id"] + "<br>");
+                        document.write("　・LoginID：" + loginUser["login_id"] + "<br>");
+                        document.write("　・Name：" + loginUser["name"] + "<br>");
+                        document.write("　・PassWord：" + loginUser["pass"] + "<br>");
+                    </script>
+                </div>
+                
+                <div class="well">
                     <h4>usersテーブル</h4>
                     <div id="test"></div>
                 </div>
@@ -39,6 +51,16 @@
                     <h4>play_characterテーブル</h4>
                     <div id="pc"></div>
                 </div>
+                
+                <div class="well">
+                    <h4>characteristicテーブル</h4>
+                    <div id="ci"></div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12" style="height:3em;">
             </div>
         </div>
         </div>

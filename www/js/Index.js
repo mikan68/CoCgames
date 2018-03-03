@@ -21,7 +21,7 @@ $( function() {
     });
 });
 
-//ログイン処理
+//ログイン処理(usersテーブル使用)
 function login() {
   
     var loginID = document.getElementById("loginID").value;
@@ -29,48 +29,61 @@ function login() {
     
     db.transaction(function (tx) {
         tx.executeSql('SELECT * FROM users WHERE login_id = ? AND pass = ?', [loginID,pass],
-        function (tx, results) {
-            console.log("test");
-            // SUCCESS
-            for (i = 0; i < results.rows.length; i++){
-                //console.log(results.rows.item(i).login_id)
-                localStorage.setItem('loginUserID', results.rows.item(i).id);
-                localStorage.setItem('loginUserName', results.rows.item(i).name);
-                
+            function (tx, results) {
+                // SUCCESS
+                //****************************************************************
+                var loginUser = {};
+                loginUser["id"] = results.rows.item(0).id;
+                loginUser["name"] = results.rows.item(0).name;
+                loginUser["pass"] = results.rows.item(0).pass;
+                loginUser["login_id"] = results.rows.item(0).login_id;
+                localStorage.setItem('loginUser', JSON.stringify(loginUser));
+            
+                sp = results.rows.item(0).summon_point;
+                mainChara = results.rows.item(0).mainChara;
+                localStorage.setItem('sp', JSON.stringify(sp));
+                localStorage.setItem('mainChara', JSON.stringify(mainChara));
+                //*****************************************************************
                 location.href = "./main.html";
+            },function(err){
+                // ERROR
+                console.log(err);
             }
-        },function(err){
-            // ERROR
-            console.log(err);
-        })
+        )
     })
     location.href = "./index.html";
   
 }
 
-//新規登録
+//新規登録(usersテーブル使用)
 function start(){
     var loginID = document.getElementById("loginID2").value;
     var pass = document.getElementById("pass2").value;
     var name = document.getElementById("name").value;
     
     db.transaction(function (tx){
-      tx.executeSql('insert into users (name, pass, login_id) values (?,?,?)', [name, pass, loginID])
-    })
-    
-    db.transaction(function (tx){
+        tx.executeSql('insert into users (name, pass, login_id, summon_point, mainChara) values (?,?,?,?,?)', [name, pass, loginID, 0, 0])
         tx.executeSql('select * from users where login_id = ?', [loginID],
             function (tx, results){
-                for (i = 0; i < results.rows.length; i++){
-                    var Check = results.rows.item(i).id;
-                }
+                var Check = results.rows.item(0).id;
+                //console.log(Check);
                 if(typeof Check === 'undefined'){
                     console.log("false");
                 }else{
                     console.log("true");
-                    localStorage.setItem('loginUserID', Check);
-                    localStorage.setItem('loginUserName', name);
-                
+                    //****************************************************************
+                    var loginUser = {};
+                    loginUser["id"] = Check;
+                    loginUser["name"] = name;
+                    loginUser["pass"] = results.rows.item(0).pass;
+                    loginUser["login_id"] = results.rows.item(0).login_id;
+                    localStorage.setItem('loginUser', JSON.stringify(loginUser));
+            
+                    sp = results.rows.item(0).summon_point;
+                    mainChara = results.rows.item(0).mainChara;
+                    localStorage.setItem('sp', JSON.stringify(sp));
+                    localStorage.setItem('mainChara', JSON.stringify(mainChara));
+                    //****************************************************************
                     location.href = "./main.html";
                 }
             }

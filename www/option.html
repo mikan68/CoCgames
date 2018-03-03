@@ -46,8 +46,11 @@
                     			<td><script>document.write(name);</script></td>
                     		</tr>
                     		<tr>
-                    			<th>召喚数</th>
-                    			<td>100</td>
+                    			<th>SummonPoint</th>
+                    			<td><script>
+                        			var sp = JSON.parse(localStorage.getItem('sp'));
+                                    document.write(sp);
+                    			</script></td>
                     		</tr>
                             <tr>
                                 <th>所持キャラクター</th>
@@ -74,7 +77,7 @@
             </div>
             <div class="well"><a href="./index.html">タイトル画面に戻る</a></div>
             <div class="well"><a href="#" onClick="logout()">ログアウトする</a></div>
-            <div class="row" style="height:30px;"></div>
+            <div class="row" style="height:3em;"></div>
         </div>
         
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

@@ -16,15 +16,6 @@ function showClock2() {
 }
 setInterval('showClock2()',1000);
 
-//召喚数(SummonPoint)
-db.transaction(function (tx){
-    tx.executeSql('select * from users where id =' + id + ';', [],
-        function (tx, results){
-            var sp = results.rows.item(0).summon_point;
-            document.getElementById("summonPoint").innerHTML = "SummonPoint : " + sp;
-        }
-    )
-})
 
 //メインキャラ会話
 function ramdomTalk(talkNum){

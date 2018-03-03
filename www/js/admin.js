@@ -29,3 +29,18 @@ db.transaction(function (tx){
         }
     )
 })
+
+//特徴表データの確認
+db.transaction(function (tx){
+    tx.executeSql('select * from characteristic', [],
+        function (tx, results){
+            var elem = document.getElementById("ci");
+            for (i = 0; i < results.rows.length; i++){
+                var name = results.rows.item(i).c_name;
+                var detail = results.rows.item(i).c_detail;
+                
+                elem.innerHTML += "【"+ (i+1) + "．" + name + "】<br>" + detail + "<br>";
+            }
+        }
+    )
+})

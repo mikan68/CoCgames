@@ -12,6 +12,10 @@
         <script type="text/javascript" src="./js/Main.js"></script>
 	</head>
 	<body class="scr">
+    
+        <audio autoplay loop>
+            <source src="https://drive.google.com/uc?id=1zU087moHF8r9PDmQ3_5RrMle46GdJ7_M">
+        </audio>
         
         <nav class="navbar navbar-default navbar-fixed-bottom">
             <div class="container">
@@ -68,7 +72,10 @@
                                     <div class="row">
                                         <div class="col-xs-12">
                                             <h3 id="RealtimeClockArea2"></h3>
-                                            <p id="summonPoint">SmmonPoint : null</p>
+                                            <script>
+                                                sp = JSON.parse(localStorage.getItem('sp'));
+                                                document.write("<p>SummonPoint : " + sp + "</p>");
+                                            </script>
                                         </div>
     		    	                    <div class="col-xs-6">
                                             <button class="btn btn-default btn-block">
@@ -77,10 +84,9 @@
                                             </button> 
                 			    	    </div>
                 			    	    <div class="col-xs-6">
-                    		    	        <button class="btn btn-default btn-block">
-                                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                                                予備　<span class="badge">10</span>
-                                            </button>
+                                            <a class="btn btn-default btn-block" href="option.html" role="button">
+                                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>USER
+                                            </a>
                 			    	    </div>
                 			        </div>
                                     
@@ -93,7 +99,7 @@
 		        <div class="col-xs-5">
                 
                     <script>
-                        mainChara = JSON.parse(sessionStorage.getItem('mainChara'));                    
+                        var mainChara = JSON.parse(localStorage.getItem('mainChara'));                    
                         document.write('<div data-toggle="popover" data-placement="left">');
                         document.write('<img src=' + charaList1[mainChara-1]["s_pic02"] + ' class="img-responsive" alt="mainImage">');
                     </script>

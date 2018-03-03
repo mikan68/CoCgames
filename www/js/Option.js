@@ -3,7 +3,10 @@ function logout() {
     
     var res = confirm("ログアウトしてもいいですか？");
     if( res == true ) {
-        // OKなら移動
+        // OK
+        //ここでuserテーブル更新させる************
+        
+        //****************************************
         window.localStorage.clear();
         location.href = "./index.html";   
     }

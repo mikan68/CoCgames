@@ -4,7 +4,7 @@ var name = loginUser["name"]; //ユーザネーム
 
 var charaList1 = []; //play_character、pc_info情報
 var characteristic = []; //characteristic情報(特徴表)
-
+var possessionCharaList = []; //所有情報
 
 //テーブル『play_character』とテーブル『pc_info』情報を取得
 db.transaction(function (tx){

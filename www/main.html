@@ -99,10 +99,17 @@
 		        <div class="col-xs-5">
                 
                     <script>
-                        var mainChara = JSON.parse(localStorage.getItem('mainChara'));                    
+                        var mainChara = JSON.parse(localStorage.getItem('mainChara'));
+                        var possessionCharaList = JSON.parse(localStorage.getItem('possessionCharaList'));
                         document.write('<div data-toggle="popover" data-placement="left">');
-                        document.write('<img src=' + charaList1[mainChara-1]["s_pic02"] + ' class="img-responsive" alt="mainImage">');
-                    </script>
+                        if(possessionCharaList[mainChara-1]["evolutionaryStage"] == 1){
+                            document.write('<img src=' + charaList1[mainChara-1]["s_pic01"] + ' class="img-responsive" alt="mainImage">');
+                        }else if(possessionCharaList[mainChara]["evolutionaryStage"] == 2){
+                            document.write('<img src=' + charaList1[mainChara-1]["s_pic02"] + ' class="img-responsive" alt="mainImage">');
+                        }else{
+                            document.write('<img src=' + charaList1[mainChara-1]["s_pic03"] + ' class="img-responsive" alt="mainImage">');
+                        }
+                        </script>
                     
                     </div>
 		        </div>

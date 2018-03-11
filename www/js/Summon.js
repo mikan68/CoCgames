@@ -130,11 +130,12 @@ function updateNumberOfSummons(hitID){ //召喚回数更新
         chara["bondsPoint"] = possessionCharaList[i]["bondsPoint"];
         if(hitID == possessionCharaList[i]["id"]){
             chara["numberOfSummons"] = possessionCharaList[i]["numberOfSummons"] + 1;
+            chara["possessionFlag"] = 1;
         }else{
             chara["numberOfSummons"] = possessionCharaList[i]["numberOfSummons"];
+            chara["possessionFlag"] = possessionCharaList[i]["possessionFlag"];
         }
         chara["evolutionaryStage"] = possessionCharaList[i]["evolutionaryStage"];
-        chara["possessionFlag"] = possessionCharaList[i]["possessionFlag"];
         chara["summonDate"] = possessionCharaList[i]["summonDate"];
         pcl.push(chara);
     }

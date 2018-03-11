@@ -32,13 +32,22 @@
             <div class="col-xs-12">
                 <div class="well">
                     <h4>ストレージ情報</h4>
-                    <b>localStorage</b><br />
+                    <b>localStorage(固定)</b><br />
                     <script>
                         var loginUser = JSON.parse(localStorage.getItem('loginUser'));
                         document.write("　・ID：" + loginUser["id"] + "<br>");
                         document.write("　・LoginID：" + loginUser["login_id"] + "<br>");
                         document.write("　・Name：" + loginUser["name"] + "<br>");
                         document.write("　・PassWord：" + loginUser["pass"] + "<br>");
+                    </script>
+                    <b>localStorage(可変)</b><br />
+                    <script>
+                        var sp = JSON.parse(localStorage.getItem('sp'));
+                        var mainChara = JSON.parse(localStorage.getItem('mainChara'));
+                        var possessionCharaList = JSON.parse(localStorage.getItem('possessionCharaList'));
+                        document.write("　・SummonPoint：" + sp + "<br>");
+                        document.write("　・mainCharaID：" + mainChara + "<br>");
+                        document.write("　・所持情報：possessionCharaList<br>");
                     </script>
                 </div>
                 
@@ -54,7 +63,10 @@
                 
                 <div class="well">
                     <h4>characteristicテーブル</h4>
-                    <div id="ci"></div>
+                    <div id="ci"><p>
+                        0：決まってない<br>
+                        1~100：特徴数
+                    </p></div>
                 </div>
                 
             </div>

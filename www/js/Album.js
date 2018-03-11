@@ -18,6 +18,20 @@ function changeMainChara(charaId){
     alert("メインキャラに設定しました。");
 }
 
+//
+function evolutionaryStageIcon(id, eFlag, pFlag){
+    
+    if(pFlag == 0){
+        return  '<a class="thumbnail" data-toggle="modal" data-target="#chara"><img src="https://drive.google.com/uc?id=1u9FL2LckaqPNW0Lh52K5npoI0Kx2Q1KF"></a>';
+    }else if(eFlag == 1 && pFlag == 1){
+        return '<a class="thumbnail" data-toggle="modal" data-target="#chara' + id + '"><img src="' + charaList1[id]["i_pic01"] + '"></a>';
+    }else if(eFlag == 2 && pFlag == 1){
+        return '<a class="thumbnail" data-toggle="modal" data-target="#chara' + id + '"><img src="' + charaList1[id]["i_pic02"] + '"></a>';
+    }else{
+        return '<a class="thumbnail" data-toggle="modal" data-target="#chara' + id + '"><img src="' + charaList1[id]["i_pic03"] + '"></a>';
+    }
+}
+
 //絆レベル表記
 function bondsPointLevel(bp){
     var num = Math.floor(bp/2000);

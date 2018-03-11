@@ -41,9 +41,7 @@
             <script>
                 for(var i=0 ; i<charaList1.length ; i++){
                     document.write('<div class="col-xs-2">'
-                        +'<a class="thumbnail" data-toggle="modal" data-target="#chara' + i + '">'
-                            +'<img src="' + charaList1[i]["i_pic01"] + '">'
-                        +'</a>'
+                        + evolutionaryStageIcon(i,possessionCharaList[i]["evolutionaryStage"],possessionCharaList[i]["possessionFlag"])
                         +'</div>');
                 }
             </script>
